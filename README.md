@@ -5,7 +5,7 @@ A simple mock server. Suitable for quickly implementing simple http requests (fo
 ## Installation
 
 ```bash
-$ npm install git+https://github.com/set2333/mock-server
+npm install git+https://github.com/set2333/mock-server
 ```
 ## Example 
 
