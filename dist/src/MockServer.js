@@ -8,8 +8,8 @@ const http_1 = __importDefault(require("http"));
 const consts_1 = require("./consts");
 const Routes_1 = __importDefault(require("./Routes"));
 class MockServer {
-    constructor(options) {
-        this.options = Object.assign(consts_1.defaultOptions, options);
+    constructor(serverOptions) {
+        this.serverOptions = Object.assign(consts_1.defaultOptions, serverOptions);
         this.roures = new Routes_1.default();
         this.server = http_1.default.createServer(this.roures.resolve.bind(this.roures));
     }
@@ -19,6 +19,21 @@ class MockServer {
     }
     get(path, handler) {
         return this.add('GET', path, handler);
+    }
+    head(path, handler) {
+        return this.add('HEAD', path, handler);
+    }
+    connect(path, handler) {
+        return this.add('CONNECT', path, handler);
+    }
+    options(path, handler) {
+        return this.add('OPTIONS', path, handler);
+    }
+    trace(path, handler) {
+        return this.add('TRACE', path, handler);
+    }
+    patch(path, handler) {
+        return this.add('PATCH', path, handler);
     }
     post(path, handler) {
         return this.add('POST', path, handler);
@@ -30,7 +45,7 @@ class MockServer {
         return this.add('DELETE', path, handler);
     }
     listen() {
-        this.server.listen(this.options.port);
+        this.server.listen(this.serverOptions.port);
         return this;
     }
 }

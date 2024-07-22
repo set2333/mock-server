@@ -1,1 +1,1 @@
-{"version":3,"file":"consts.js","sourceRoot":"","sources":["../../src/consts.ts"],"names":[],"mappings":";;;AAEa,QAAA,cAAc,GAAY;IACrC,IAAI,EAAE,IAAI;CACX,CAAA;AAEY,QAAA,OAAO,GAAG;IACrB,6BAA6B,EAAE,GAAG;CACnC,CAAA"}
+{"version":3,"file":"consts.js","sourceRoot":"","sources":["../../src/consts.ts"],"names":[],"mappings":";;;AAEa,QAAA,cAAc,GAAY;IACrC,IAAI,EAAE,IAAI;CACX,CAAC;AAEW,QAAA,OAAO,GAAG;IACrB,6BAA6B,EAAE,GAAG;CACnC,CAAC"}

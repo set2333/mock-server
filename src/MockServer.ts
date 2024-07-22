@@ -4,12 +4,12 @@ import Routes from './Routes';
 import type { Handler, Path, Options } from './types';
 
 export class MockServer {
-  options: Options;
+  serverOptions: Options;
   roures: Routes;
   server: http.Server;
 
-  constructor(options: Options) {
-    this.options = Object.assign(defaultOptions, options);
+  constructor(serverOptions: Options) {
+    this.serverOptions = Object.assign(defaultOptions, serverOptions);
     this.roures = new Routes();
     this.server = http.createServer(this.roures.resolve.bind(this.roures));
   }
@@ -22,6 +22,26 @@ export class MockServer {
 
   get(path: Path, handler: Handler) {
     return this.add('GET', path, handler);
+  }
+
+  head(path: Path, handler: Handler) {
+    return this.add('HEAD', path, handler);
+  }
+
+  connect(path: Path, handler: Handler) {
+    return this.add('CONNECT', path, handler);
+  }
+
+  options(path: Path, handler: Handler) {
+    return this.add('OPTIONS', path, handler);
+  }
+
+  trace(path: Path, handler: Handler) {
+    return this.add('TRACE', path, handler);
+  }
+
+  patch(path: Path, handler: Handler) {
+    return this.add('PATCH', path, handler);
   }
 
   post(path: Path, handler: Handler) {
@@ -37,7 +57,7 @@ export class MockServer {
   }
 
   listen() {
-    this.server.listen(this.options.port);
+    this.server.listen(this.serverOptions.port);
 
     return this;
   }
