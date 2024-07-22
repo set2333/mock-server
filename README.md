@@ -44,19 +44,17 @@ const server = new MockServer({
 });
 ```
 
-The following handlers can be specified for the server (get, post, head, connect, options, put, trace, patch, delete).
+The following handlers can be specified for the server (connect, delete, get, head, options, patch, post, put, trace).
 First parameter path, second parameter handler.
 You can pass a regular function as a handler, but it is more convenient to use handlers from Handlers:
 
-Handlers.text - will return plain text
-Handlers.json - will return JSON
-Handlers.html - will return an html file located at the passed path
-Handlers.file - will return a file located at the passed path
-Handlers.custom - The handler uses the function. The parameters contain:
-  body - parsed body from the request
-  query - parsed query from the request
-  request - http request
-  response - http response
-Don't forget to call something like response.end().
-
-If this looks complicated, use Handlers.auto. It will automatically call the required handler.
+- **Handlers.text** - will return plain text
+- **Handlers.json** - will return JSON
+- **Handlers.html** - will return an html file located at the passed path
+- **Handlers.file** - will return a file located at the passed path
+- **Handlers.custom** - The handler uses the function. The parameters contain:
+  - *body* - parsed body from the request
+  - *query* - parsed query from the request
+  - *request* - http request
+  - *response*- http response
+- **Handlers.auto** - It will automatically call the required handler.
