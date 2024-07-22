@@ -5,19 +5,7 @@ A simple mock server. Suitable for quickly implementing simple http requests (fo
 ## Installation
 
 ```bash
-$ npm install
-```
-
-## Build (development)
-
-```bash
-$ npm run watch
-```
-
-## Build (production)
-
-```bash
-$ npm run build
+$ npm install git+https://github.com/set2333/mock-server
 ```
 ## Example 
 
