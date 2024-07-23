@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MockServer = void 0;
 const http_1 = __importDefault(require("http"));
 const consts_1 = require("./consts");
-const Routes_1 = __importDefault(require("./Routes"));
+const Routes_1 = require("./Routes");
 class MockServer {
     constructor(serverOptions) {
         this.serverOptions = Object.assign(consts_1.defaultOptions, serverOptions);
-        this.roures = new Routes_1.default();
+        this.roures = new Routes_1.Routes();
         this.server = http_1.default.createServer(this.roures.resolve.bind(this.roures));
     }
     add(method, path, handler) {

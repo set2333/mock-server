@@ -31,7 +31,9 @@ export class Handlers {
     return ({ response }) => {
       response.writeHead(200, headers);
 
-      fs.readFile(file, (_, data) => response.end(data));
+      return new Promise(resolve => {
+        fs.readFile(file, (_, data) => resolve(data));
+      }).then((data) => response.end(data));
     };
   }
 
@@ -39,7 +41,9 @@ export class Handlers {
     return ({ response }) => {
       response.writeHead(200, headers);
 
-      fs.readFile(htmlFile, { encoding: 'utf-8' }, (_, data) => response.end(data));
+      return new Promise(resolve => {
+        fs.readFile(htmlFile, { encoding: 'utf-8' }, (_, data) => resolve(data));
+      }).then((data) => response.end(data));
     };
   }
 
@@ -56,8 +60,6 @@ export class Handlers {
       } catch (e) {
         return Handlers.text(params);
       }
-    
     }
-
   }
 }

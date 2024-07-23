@@ -2,7 +2,7 @@ import url from 'url';
 import { parseBody } from './utils';
 import type { Handler, Path, Request, Response } from './types';
 
-class Routes {
+export class Routes {
   routes;
 
   constructor() {
@@ -19,5 +19,3 @@ class Routes {
     await this.routes.get(request.method)?.[pathname || '']?.({ body, query, request, response });
   }
 }
-
-export default Routes;

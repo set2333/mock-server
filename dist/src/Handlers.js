@@ -28,13 +28,17 @@ class Handlers {
     static file(file) {
         return ({ response }) => {
             response.writeHead(200, consts_1.headers);
-            fs_1.default.readFile(file, (_, data) => response.end(data));
+            return new Promise(resolve => {
+                fs_1.default.readFile(file, (_, data) => resolve(data));
+            }).then((data) => response.end(data));
         };
     }
     static html(htmlFile) {
         return ({ response }) => {
             response.writeHead(200, consts_1.headers);
-            fs_1.default.readFile(htmlFile, { encoding: 'utf-8' }, (_, data) => response.end(data));
+            return new Promise(resolve => {
+                fs_1.default.readFile(htmlFile, { encoding: 'utf-8' }, (_, data) => resolve(data));
+            }).then((data) => response.end(data));
         };
     }
     static auto(params) {

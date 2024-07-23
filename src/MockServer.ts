@@ -1,6 +1,6 @@
 import http from 'http';
 import { defaultOptions } from './consts';
-import Routes from './Routes';
+import { Routes } from './Routes';
 import type { Handler, Path, Options } from './types';
 
 export class MockServer {

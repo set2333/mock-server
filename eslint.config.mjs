@@ -2,7 +2,7 @@ import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 
-const files = ['src/*.ts'];
+const files = ['src/*.ts', 'tests/*.ts'];
 
 export default [
   {
