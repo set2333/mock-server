@@ -9,7 +9,7 @@ const consts_1 = require("./consts");
 const Routes_1 = require("./Routes");
 class MockServer {
     constructor(serverOptions) {
-        this.serverOptions = Object.assign(consts_1.defaultOptions, serverOptions);
+        this.serverOptions = Object.assign(consts_1.defaultOptions, serverOptions !== null && serverOptions !== void 0 ? serverOptions : {});
         this.roures = new Routes_1.Routes();
         this.server = http_1.default.createServer(this.roures.resolve.bind(this.roures));
     }

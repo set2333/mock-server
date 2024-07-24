@@ -8,52 +8,52 @@ export class MockServer {
   roures: Routes;
   server: http.Server;
 
-  constructor(serverOptions: Options) {
-    this.serverOptions = Object.assign(defaultOptions, serverOptions);
+  constructor(serverOptions?: Options) {
+    this.serverOptions = Object.assign(defaultOptions, serverOptions ?? {});
     this.roures = new Routes();
     this.server = http.createServer(this.roures.resolve.bind(this.roures));
   }
 
-  add(method: Request['method'], path: Path, handler: Handler) {
-    this.roures.addHandler(method, path, handler);
+  add<TBody, TQuery>(method: Request['method'], path: Path, handler: Handler<TBody, TQuery>) {
+    this.roures.addHandler<TBody, TQuery>(method, path, handler);
 
     return this;
   }
 
-  get(path: Path, handler: Handler) {
-    return this.add('GET', path, handler);
+  get<TBody, TQuery>(path: Path, handler: Handler<TBody, TQuery>) {
+    return this.add<TBody, TQuery>('GET', path, handler);
   }
 
-  head(path: Path, handler: Handler) {
-    return this.add('HEAD', path, handler);
+  head<TBody, TQuery>(path: Path, handler: Handler<TBody, TQuery>) {
+    return this.add<TBody, TQuery>('HEAD', path, handler);
   }
 
-  connect(path: Path, handler: Handler) {
-    return this.add('CONNECT', path, handler);
+  connect<TBody, TQuery>(path: Path, handler: Handler<TBody, TQuery>) {
+    return this.add<TBody, TQuery>('CONNECT', path, handler);
   }
 
-  options(path: Path, handler: Handler) {
-    return this.add('OPTIONS', path, handler);
+  options<TBody, TQuery>(path: Path, handler: Handler<TBody, TQuery>) {
+    return this.add<TBody, TQuery>('OPTIONS', path, handler);
   }
 
-  trace(path: Path, handler: Handler) {
-    return this.add('TRACE', path, handler);
+  trace<TBody, TQuery>(path: Path, handler: Handler<TBody, TQuery>) {
+    return this.add<TBody, TQuery>('TRACE', path, handler);
   }
 
-  patch(path: Path, handler: Handler) {
-    return this.add('PATCH', path, handler);
+  patch<TBody, TQuery>(path: Path, handler: Handler<TBody, TQuery>) {
+    return this.add<TBody, TQuery>('PATCH', path, handler);
   }
 
-  post(path: Path, handler: Handler) {
-    return this.add('POST', path, handler);
+  post<TBody, TQuery>(path: Path, handler: Handler<TBody, TQuery>) {
+    return this.add<TBody, TQuery>('POST', path, handler);
   }
 
-  put(path: Path, handler: Handler) {
-    return this.add('PUT', path, handler);
+  put<TBody, TQuery>(path: Path, handler: Handler<TBody, TQuery>) {
+    return this.add<TBody, TQuery>('PUT', path, handler);
   }
 
-  delete(path: Path, handler: Handler) {
-    return this.add('DELETE', path, handler);
+  delete<TBody, TQuery>(path: Path, handler: Handler<TBody, TQuery>) {
+    return this.add<TBody, TQuery>('DELETE', path, handler);
   }
 
   listen() {

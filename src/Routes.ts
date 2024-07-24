@@ -9,8 +9,8 @@ export class Routes {
     this.routes = new Map<Request['method'], Record<Path, Handler>>();
   }
 
-  addHandler(method: Request['method'], path: Path, handler: Handler) {
-    this.routes.set(method, { ...(this.routes.get(method)), [path]: handler });
+  addHandler<TBody, TQuery>(method: Request['method'], path: Path, handler: Handler<TBody, TQuery>) {
+    this.routes.set(method, { ...(this.routes.get(method)), [path]: handler as Handler });
   }
 
   async resolve(request: Request, response: Response) {

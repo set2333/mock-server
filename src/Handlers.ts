@@ -3,7 +3,7 @@ import { headers } from './consts';
 import type { Handler, Path } from './types';
 
 export class Handlers {
-  static custom(cb: Handler): Handler {
+  static custom<TBody, TQuery>(cb: Handler<TBody, TQuery>): Handler<TBody, TQuery> {
     return (params) => {
       params.response.writeHead(200, headers);
 
